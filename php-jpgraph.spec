@@ -12,6 +12,7 @@ Source0:	http://members.chello.se/jpgraph/jpgdownloads/jpgraph-%{version}.tar.bz
 Requires:	php php-common php-gd gd fonts-ttf-bitstream-vera
 BuildArch:	noarch
 BuildRequires:	dos2unix
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Obsoletes:	php5-jpgraph
 
 %description
