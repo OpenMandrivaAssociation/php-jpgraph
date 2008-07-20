@@ -3,17 +3,17 @@
 
 Summary:	An OO graph drawing class library for PHP5
 Name:		php-jpgraph
-Version:	2.1.4
+Version:	2.3.3
 Release:	%mkrel 1
 License:	QPL
 Group:		Networking/Other
 URL:		http://www.aditus.nu/jpgraph/
-Source0:	http://members.chello.se/jpgraph/jpgdownloads/jpgraph-%{version}.tar.bz2
+Source0:	http://hem.bredband.net/jpgraph2/jpgraph-%{version}.tar.gz
 Requires:	php php-common php-gd gd fonts-ttf-bitstream-vera
 BuildArch:	noarch
 BuildRequires:	dos2unix
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 Obsoletes:	php5-jpgraph
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 JpGraph is a OO Graph drawing library for PHP 5.0.x and above.
@@ -61,13 +61,13 @@ done
 find -type f | grep -v "\.gif" | grep -v "\.png" | grep -v "\.jpg" | xargs dos2unix -U
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 install -d %{buildroot}%{_datadir}/php-jpgraph
 cp -aRf src/* %{buildroot}%{_datadir}/php-jpgraph/
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
@@ -78,5 +78,3 @@ cp -aRf src/* %{buildroot}%{_datadir}/php-jpgraph/
 %files doc
 %defattr(-,root,root)
 %doc docs/*
-
-
