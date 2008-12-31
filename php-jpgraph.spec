@@ -4,7 +4,7 @@
 Summary:	An OO graph drawing class library for PHP5
 Name:		php-jpgraph
 Version:	2.3.3
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	QPL
 Group:		Networking/Other
 URL:		http://www.aditus.nu/jpgraph/
