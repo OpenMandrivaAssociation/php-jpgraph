@@ -4,16 +4,17 @@
 Summary:	An OO graph drawing class library for PHP5
 Name:		php-jpgraph
 Version:	2.3.3
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	QPL
 Group:		Networking/Other
 URL:		http://www.aditus.nu/jpgraph/
 Source0:	http://hem.bredband.net/jpgraph2/jpgraph-%{version}.tar.gz
-Requires:	php php-common php-gd gd fonts-ttf-bitstream-vera
+Requires:	gd
+Requires:	php-gd
+Requires:	fonts-ttf-bitstream-vera
 BuildArch:	noarch
-BuildRequires:	dos2unix
 Obsoletes:	php5-jpgraph
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 JpGraph is a OO Graph drawing library for PHP 5.0.x and above.
@@ -45,36 +46,34 @@ graph, intelligent autoscaling.
 This package contains the documenation for %{name}.
 
 %prep
-
 %setup -q -n jpgraph-%{version}
-
-find . -type d -perm 0700 -exec chmod 755 {} \;
-find . -type f -perm 0555 -exec chmod 755 {} \;
-find . -type f -perm 0444 -exec chmod 644 {} \;
-find . -type f -perm 0754 -exec chmod 755 {} \;
-
-for i in `find . -type d -name CVS` `find . -type f -name .cvs\*` `find . -type f -name .#\*`; do
-    if [ -e "$i" ]; then rm -rf $i; fi >&/dev/null
-done
-
-# strip away annoying ^M
-find -type f | grep -v "\.gif" | grep -v "\.png" | grep -v "\.jpg" | xargs dos2unix -U
 
 %install
 rm -rf %{buildroot}
 
-install -d %{buildroot}%{_datadir}/php-jpgraph
-cp -aRf src/* %{buildroot}%{_datadir}/php-jpgraph/
+install -d %{buildroot}%{_datadir}/php/jpgraph
+install -m 644 src/*.php %{buildroot}%{_datadir}/php/jpgraph
+install -m 644 src/*.dat %{buildroot}%{_datadir}/php/jpgraph
+install -d -m 755 %{buildroot}%{_datadir}/php/jpgraph/lang
+install -m 644 src/lang/*.php %{buildroot}%{_datadir}/php/jpgraph/lang
+
+install -d -m 755 %{buildroot}%{_docdir}/%{name}
+cp -r docs %{buildroot}%{_docdir}/%{name}
+cp -r src/Examples %{buildroot}%{_docdir}/%{name}
+install -m 644 README VERSION QPL.txt %{buildroot}%{_docdir}/%{name}
+install -m 644 src/CHANGELOG-2.3.3.txt %{buildroot}%{_docdir}/%{name}
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc README* 
-%dir %{_datadir}/php-jpgraph
-%{_datadir}/php-jpgraph/*
+%{_docdir}/%{name}
+%{_datadir}/php/jpgraph
+%exclude %{_docdir}/%{name}/Examples
+%exclude %{_docdir}/%{name}/docs
 
 %files doc
 %defattr(-,root,root)
-%doc docs/*
+%{_docdir}/%{name}/Examples
+%{_docdir}/%{name}/docs
