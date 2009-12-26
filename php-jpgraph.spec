@@ -3,12 +3,13 @@
 
 Summary:	An OO graph drawing class library for PHP5
 Name:		php-jpgraph
-Version:	2.3.3
-Release:	%mkrel 4
+Version:	3.0.6
+Release:	%mkrel 1
 License:	QPL
 Group:		Networking/Other
 URL:		http://www.aditus.nu/jpgraph/
-Source0:	http://hem.bredband.net/jpgraph2/jpgraph-%{version}.tar.gz
+Source0:	http://hem.bredband.net/jpgraph2/jpgraph-%{version}.tar.bz2
+Patch0:		jpgraph-3.0.6-CVE-2009-4422.diff
 Requires:	gd
 Requires:	php-gd
 Requires:	fonts-ttf-bitstream-vera
@@ -46,22 +47,19 @@ graph, intelligent autoscaling.
 This package contains the documenation for %{name}.
 
 %prep
-%setup -q -n jpgraph-%{version}
+%setup -q -c -n jpgraph-%{version}
+%patch0 -p0
 
 %install
 rm -rf %{buildroot}
 
 install -d %{buildroot}%{_datadir}/php/jpgraph
-install -m 644 src/*.php %{buildroot}%{_datadir}/php/jpgraph
-install -m 644 src/*.dat %{buildroot}%{_datadir}/php/jpgraph
-install -d -m 755 %{buildroot}%{_datadir}/php/jpgraph/lang
-install -m 644 src/lang/*.php %{buildroot}%{_datadir}/php/jpgraph/lang
+cp -aRf src/* %{buildroot}%{_datadir}/php/jpgraph/
 
 install -d -m 755 %{buildroot}%{_docdir}/%{name}
-cp -r docs %{buildroot}%{_docdir}/%{name}
+cp -r docportal %{buildroot}%{_docdir}/%{name}
 cp -r src/Examples %{buildroot}%{_docdir}/%{name}
-install -m 644 README VERSION QPL.txt %{buildroot}%{_docdir}/%{name}
-install -m 644 src/CHANGELOG-2.3.3.txt %{buildroot}%{_docdir}/%{name}
+install -m 644 README VERSION %{buildroot}%{_docdir}/%{name}
 
 %clean
 rm -rf %{buildroot}
@@ -71,9 +69,9 @@ rm -rf %{buildroot}
 %{_docdir}/%{name}
 %{_datadir}/php/jpgraph
 %exclude %{_docdir}/%{name}/Examples
-%exclude %{_docdir}/%{name}/docs
+%exclude %{_docdir}/%{name}/docportal
 
 %files doc
 %defattr(-,root,root)
 %{_docdir}/%{name}/Examples
-%{_docdir}/%{name}/docs
+%{_docdir}/%{name}/docportal
