@@ -3,11 +3,11 @@
 
 Summary:	An OO graph drawing class library for PHP5
 Name:		php-jpgraph
-Version:	3.0.6
+Version:	3.0.7
 Release:	%mkrel 1
 License:	QPL
 Group:		Networking/Other
-URL:		http://www.aditus.nu/jpgraph/
+URL:		http://jpgraph.net/
 Source0:	http://hem.bredband.net/jpgraph2/jpgraph-%{version}.tar.bz2
 Patch0:		jpgraph-3.0.6-CVE-2009-4422.diff
 Requires:	gd
@@ -27,11 +27,11 @@ pie-charts, lineplots, filled line plots, impulse plots, bar
 plots, and error plots, support for multiple plot types in one
 graph, intelligent autoscaling.
 
-Extensive documentations are availible at:
-http://www.aditus.nu/jpgraph/
+Extensive documentations are available at:
+http://jpgraph.net/doc/
 
 %package	doc
-Summary:	Documenation for JpGraph
+Summary:	Documentation for JpGraph
 Group:		Networking/Other
 
 %description	doc
@@ -44,7 +44,7 @@ pie-charts, lineplots, filled line plots, impulse plots, bar
 plots, and error plots, support for multiple plot types in one
 graph, intelligent autoscaling.
 
-This package contains the documenation for %{name}.
+This package contains the documentation for %{name}.
 
 %prep
 %setup -q -c -n jpgraph-%{version}
