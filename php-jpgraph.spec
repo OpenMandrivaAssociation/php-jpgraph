@@ -1,7 +1,7 @@
 %undefine __find_provides
 %undefine __find_requires
 
-%define rel	1
+%define rel	2
 %define prerel	b1
 
 Summary:	An OO graph drawing class library for PHP5
