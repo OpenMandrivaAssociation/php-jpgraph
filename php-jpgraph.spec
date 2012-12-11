@@ -80,3 +80,56 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_docdir}/%{name}/Examples
 %{_docdir}/%{name}/docs
+
+
+%changelog
+* Fri May 27 2011 Oden Eriksson <oeriksson@mandriva.com> 3.5.0-0.b1.2mdv2011.0
++ Revision: 679258
+- mass rebuild
+
+* Mon Oct 25 2010 Jani Välimaa <wally@mandriva.org> 3.5.0-0.b1.1mdv2011.0
++ Revision: 589371
+- new version 3.5.0b1
+
+* Tue Jul 13 2010 Jani Välimaa <wally@mandriva.org> 3.0.7-1mdv2011.0
++ Revision: 552136
+- new version 3.0.7
+- fix URLs
+- fix some typos in description and summary
+
+* Sat Dec 26 2009 Oden Eriksson <oeriksson@mandriva.com> 3.0.6-1mdv2010.1
++ Revision: 482455
+- 3.0.6
+- P0: security fix for CVE-2009-4422
+
+* Thu Oct 01 2009 Guillaume Rousse <guillomovitch@mandriva.org> 2.3.3-4mdv2010.0
++ Revision: 452370
+- fix dependencies
+- don't suplicate spec-helper job
+- spec cleanup
+- install documentation under %%{_docdir}/%%{name}
+- install php files under %%{_datadir}/php
+
+* Sun Jul 19 2009 Raphaël Gertz <rapsys@mandriva.org> 2.3.3-3mdv2010.0
++ Revision: 397545
+- Rebuild
+
+* Wed Dec 31 2008 Oden Eriksson <oeriksson@mandriva.com> 2.3.3-2mdv2009.1
++ Revision: 321861
+- rebuild
+
+* Sun Jul 20 2008 Oden Eriksson <oeriksson@mandriva.com> 2.3.3-1mdv2009.0
++ Revision: 239139
+- 2.3.3
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+
+* Thu Mar 08 2007 Emmanuel Andry <eandry@mandriva.org> 2.1.4-1mdv2007.1
++ Revision: 138537
+- Import php-jpgraph
+
