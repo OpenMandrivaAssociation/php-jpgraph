@@ -10,7 +10,7 @@ Version:	3.5.0
 Release:	%mkrel -c %{prerel} %{rel}
 License:	QPL
 Group:		Networking/Other
-URL:		http://jpgraph.net/
+URL:		https://jpgraph.net/
 # no direct download link available on website
 # md5 checksum: 7237ef5dc19ad8bb67197a19782e950c
 Source0:	jpgraph-%{version}%{prerel}.tar.gz
