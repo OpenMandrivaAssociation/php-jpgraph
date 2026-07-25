@@ -7,7 +7,7 @@
 Summary:	An OO graph drawing class library for PHP5
 Name:		php-jpgraph
 Version:	3.5.0
-Release:	%mkrel -c %{prerel} %{rel}
+Release:	-c %{prerel} %{rel}.1
 License:	QPL
 Group:		Networking/Other
 URL:		https://jpgraph.net/
