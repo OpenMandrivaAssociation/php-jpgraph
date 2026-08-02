@@ -1,19 +1,15 @@
 %undefine __find_provides
 %undefine __find_requires
 
-%define rel	2
-%define prerel	b1
-
 Summary:	An OO graph drawing class library for PHP5
 Name:		php-jpgraph
-Version:	3.5.0
-Release:	-c %{prerel} %{rel}.1
+Version:	4.4.2
+Release:	1
 License:	QPL
 Group:		Networking/Other
 URL:		https://jpgraph.net/
 # no direct download link available on website
-# md5 checksum: 7237ef5dc19ad8bb67197a19782e950c
-Source0:	jpgraph-%{version}%{prerel}.tar.gz
+Source0:	jpgraph-%{version}.tar.gz
 Patch0:		jpgraph-3.0.6-CVE-2009-4422.diff
 Requires:	gd
 Requires:	php-gd
@@ -52,8 +48,8 @@ graph, intelligent autoscaling.
 This package contains the documentation for %{name}.
 
 %prep
-%setup -q -n jpgraph-%{version}%{prerel}
-%patch0 -p0
+%setup -q -n jpgraph-%{version}
+%patch -P0 -p0
 
 %install
 rm -rf %{buildroot}
@@ -64,7 +60,7 @@ cp -aRf src/* %{buildroot}%{_datadir}/php/jpgraph/
 install -d -m 755 %{buildroot}%{_docdir}/%{name}
 cp -r docs %{buildroot}%{_docdir}/%{name}
 cp -r src/Examples %{buildroot}%{_docdir}/%{name}
-install -m 644 README VERSION %{buildroot}%{_docdir}/%{name}
+install -m 644 src/README VERSION %{buildroot}%{_docdir}/%{name}
 
 %clean
 rm -rf %{buildroot}
